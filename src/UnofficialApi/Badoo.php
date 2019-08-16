@@ -81,6 +81,10 @@ class Badoo extends AbstractFormate
      */
     public function loadSession(string $session = null): bool
     {
+        /** check dir session */
+        if (!is_dir(__DIR__ . DIRECTORY_SEPARATOR . 'session' . DIRECTORY_SEPARATOR)) {
+            mkdir(__DIR__ . DIRECTORY_SEPARATOR . 'session' . DIRECTORY_SEPARATOR, 0777, true);
+        }
         $this->sessionFile = $session ?: 'session';
         if ($this->sessionFile && \file_exists(__DIR__ . '/session/' . $this->sessionFile)) {
             $temp = unserialize(file_get_contents(__DIR__ . '/session/' . $this->sessionFile));
@@ -150,6 +154,11 @@ class Badoo extends AbstractFormate
         if (!$response['headers']['X-User-id']) {
             return ['error' => 'Authorization false'];
         }
+        /** check dir session */
+        if (!is_dir(__DIR__ . DIRECTORY_SEPARATOR . 'session' . DIRECTORY_SEPARATOR)) {
+            mkdir(__DIR__ . DIRECTORY_SEPARATOR . 'session' . DIRECTORY_SEPARATOR, 0777, true);
+        }
+        /** save session */
         file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'session' . DIRECTORY_SEPARATOR . $this->sessionFile, serialize([
             'session' =>  $this->session,
             'user' => $response['headers']['X-User-id'],
