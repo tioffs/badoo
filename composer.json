@@ -1,0 +1,35 @@
+{
+  "name": "tioffs/badoo",
+  "description": "Unofficial api for badoo social network",
+  "keywords": [
+    "badoo",
+    "social",
+    "UnofficialApi",
+    "api"
+  ],
+  "type": "library",
+  "homepage": "https://github.com/tioffs/badoo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "tioffs",
+      "email": "me@timlab.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "mashape/unirest-php": "3.0.*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "tioffs/badoo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "UnofficialApi\\": "src/UnofficialApi/"
+    }
+  },
+  "support": {
+    "email": "me@timlab.ru"
+  },
+  "minimum-stability": "dev"
+}
