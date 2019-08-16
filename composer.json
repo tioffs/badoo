@@ -20,8 +20,7 @@
     "php": ">=7.0",
     "mashape/unirest-php": "3.0.*",
     "ext-curl": "*",
-    "ext-json": "*",
-    "tioffs/badoo": "*"
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
